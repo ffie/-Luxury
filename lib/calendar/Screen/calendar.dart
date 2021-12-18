@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/calendar/Model/calender.dart';
 import 'package:flutter_application_1/widget/app_bar.dart';
 import 'package:flutter_application_1/widget/button.dart';
+import 'package:flutter_application_1/widget/route.dart';
 import 'package:flutter_application_1/widget/size.dart';
 import '../memo/memo.dart';
 
@@ -17,8 +18,9 @@ class CalenderScreen extends StatefulWidget {
   _CalenderScreenState createState() => _CalenderScreenState();
 }
 
-int monthCount = 1;
-int yearCount = 2021;
+int monthCount = DateTime.now().month;
+int yearCount = DateTime.now().year;
+int day = DateTime.now().day;
 
 class _CalenderScreenState extends State<CalenderScreen> {
   @override
@@ -170,16 +172,16 @@ class _CalendarListVIewState extends State<CalendarList> {
                                                 .toString()),
                                             onLongPress: () {},
                                             onTap: () {
-                                              Navigator.of(context).push(
-                                                  MaterialPageRoute(
-                                                      builder: (context) => MemoPage(
-                                                          data: "$yearCount" +
-                                                              "년" +
-                                                              "$monthCount" +
-                                                              "월" +
-                                                              nNowDay(e, t,
-                                                                      nSpace)
-                                                                  .toString())));
+                                              customRoute(
+                                                context,
+                                                MemoPage(
+                                                    data: "$yearCount"
+                                                            "년 "
+                                                            "$monthCount"
+                                                            "월 " +
+                                                        nNowDay(e, t, nSpace)
+                                                            .toString()),
+                                              );
                                             }),
                                       ),
                               ),

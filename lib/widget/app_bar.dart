@@ -33,15 +33,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ? CustomCupertinoButton(
               margin: EdgeInsets.only(left: 10),
               onTap: () => Navigator.of(context).pop(),
-              child: fullscreenDialog!
-                  ? Icon(
-                      Icons.close,
-                      size: 60.0,
-                    )
-                  : Icon(
-                      Icons.backspace,
-                      size: 60.0,
-                    ),
+              child: IconButton(icon: Icon(Icons.arrow_back), onPressed: null),
             )
           : null,
       title: Text(
